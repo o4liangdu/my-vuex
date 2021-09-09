@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <HelloWorld :msg="vuexData"/> -->
+    <!-- <HelloWorld :msg="$store.state.name"/> -->
+    <HelloWorld :msg="name"/>
+    <div>{{$store.state.number}}</div>
   </div>
 </template>
 
@@ -12,6 +14,24 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  data: () => {
+    return {
+      // vuexData: "fff"
+
+    }
+  },
+  mounted() {
+    setInterval(()=>{
+      console.log(this.$store.state.number)
+      this.$store.commit("addNum", 2)
+    },2000)
+  },
+  computed: {
+    name() {
+      // 注意这里是取的值,而在store中定义的是函数
+      return this.$store.getters.getMyName
+    }
   }
 }
 </script>

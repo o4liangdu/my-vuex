@@ -1,24 +1,7 @@
-# demo
+## 手写vuex
+手写vuex,实际上vuex就是一个全局共享的vue插件,定义好Store和install函数,根据使用接收相关数据并进行管理,和我之前写的vue-router很像,供大家参考学习  
+添加了一个持久化vuex的插件,基于localstorage实现  
 
-## Project setup
-```
-npm install
-```
+手写vuex需要注意的是数据的状态,比如响应式的实现和调用state时的路径问题,通过class中的get实现;又比如getter中定义的函数,而取的时候我们是调用的值,是通过Object.defineProperty实现的;再比如mutations和actions则采用了发布订阅模式的思想.比较重要的代码注释都比较详细  
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+读者可以仔细品其中的用法
